@@ -3,4 +3,4 @@
 # author: Atsushi Sakai
 echo "Source mybashrc"
 
-source ~/dotfiles/mypercol.sh
+source ~/dotfiles/mypercol.bash

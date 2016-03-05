@@ -17,8 +17,7 @@ export HISTSIZE=10000
 # settings for peco
 _replace_by_history() {
     declare l=$(HISTTIMEFORMAT= history | sort -k1,1nr | perl -ne 'BEGIN { my @lines = (); } s/^\s*\d+\s*//; $in=$_; if (!(grep {$in eq $_} @lines)) { push(@lines, $in); print $in; }' | percol --query "$READLINE_LINE")
-    echo $l
-    READLINE_LINE="aaaaaaaaa"
+    READLINE_LINE="$l"
     READLINE_POINT=${#l}
 }
 bind -x '"\C-r": _replace_by_history'
