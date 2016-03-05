@@ -38,6 +38,16 @@ function rost() {
     fi
 }
 
+function rostopicecho() {
+    if [ "$1" = "" ]; then
+        topic=$(rostopic list | percol | xargs -n 1 rostopic info | percol | sed -e 's%.* \* \(/[/a-zA-Z0-9_]*\) .*%\1%')
+    else
+        topic=$(rostopic info $1 | percol | sed -e 's%.* \* \(/[/a-zA-Z0-9_]*\) .*%\1%')
+    fi
+    echo $topic
+}
+
+
 
 function cd(){
      builtin pushd ${1:-$HOME} > /dev/null
