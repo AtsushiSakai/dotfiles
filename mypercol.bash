@@ -9,14 +9,14 @@ export HISTCONTROL=ignoreboth:erasedups
 #historyの保存の数を10000に
 export HISTSIZE=10000
 
-# settings for peco
-_replace_by_history() {
+replace_by_history() {
     declare l=$(HISTTIMEFORMAT= history | sort -k1,1nr | perl -ne 'BEGIN { my @lines = (); } s/^\s*\d+\s*//; $in=$_; if (!(grep {$in eq $_} @lines)) { push(@lines, $in); print $in; }' | percol --query "$READLINE_LINE")
     READLINE_LINE="$l"
     READLINE_POINT=${#l}
 }
 bind -x '"\C-r": _replace_by_history'
 
+#=====For rostopic or rosnode=====
 function rosn() {
     if [ "$1" = "" ]; then
         topic=$(rosnode list | percol | xargs -n 1 rosnode info | percol | sed -e 's%.* \* \(/[/a-zA-Z0-9_]*\) .*%\1%')
@@ -38,16 +38,16 @@ function rost() {
     fi
 }
 
-function rostopicecho() {
-    if [ "$1" = "" ]; then
-        topic=$(rostopic list | percol | xargs -n 1 rostopic info | percol | sed -e 's%.* \* \(/[/a-zA-Z0-9_]*\) .*%\1%')
-    else
-        topic=$(rostopic info $1 | percol | sed -e 's%.* \* \(/[/a-zA-Z0-9_]*\) .*%\1%')
-    fi
-    echo $topic
+function _rostopicecho() {
+    declare topic=$(rostopic list | percol --query "$READLINE_LINE")
+    cmd='rostopic echo '$topic
+    READLINE_LINE="$cmd"
+    READLINE_POINT=${#cmd}
 }
+#bind しないと選んだ文字列が挿入されない
+bind -x '"\C-e": _rostopicecho'
 
-
+#====For cd ranking====
 
 function cd(){
      builtin pushd ${1:-$HOME} > /dev/null
