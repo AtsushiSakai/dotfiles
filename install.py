@@ -9,7 +9,7 @@ import subprocess
 
 
 def main():
-    print("dotfiles install!!")
+    print("dotfiles install!")
 
     clone_dotfiles()
 
