@@ -6,4 +6,4 @@ my dot files
 
 # plugins
 
--[b4b4r07/enhancd: A next-generation cd command with an interactive filter](https://github.com/b4b4r07/enhancd "b4b4r07/enhancd: A next-generation cd command with an interactive filter") 
+- [b4b4r07/enhancd: A next-generation cd command with an interactive filter](https://github.com/b4b4r07/enhancd "b4b4r07/enhancd: A next-generation cd command with an interactive filter") 
