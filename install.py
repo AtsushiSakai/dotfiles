@@ -25,8 +25,6 @@ def install_enhancd():
 
     cmd = "git clone https://github.com/b4b4r07/enhancd ~/dotfiles/src/enhancd/"
     subprocess.call(cmd, shell=True)
-    cmd = "source ~/dotfiles/src/enhancd/init.sh"
-    subprocess.call(cmd, shell=True)
 
 
 def add_mybashrc_sourse_on_bashrc():

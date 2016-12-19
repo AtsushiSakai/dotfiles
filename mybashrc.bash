@@ -7,4 +7,8 @@
 # export PATH="$HOME/.pyenv/bin:$PATH"
 eval "$(pyenv init -)"
 
+# for percol setting
 source ~/dotfiles/mypercol.bash
+
+# for enhancd setting
+source ~/dotfiles/src/enhancd/init.sh
