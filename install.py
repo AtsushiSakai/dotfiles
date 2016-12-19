@@ -8,7 +8,7 @@ author: Atsushi Sakai
 
 
 def main():
-    print("dotfiles install!!")
+    print("dotfiles install!")
 
 
 if __name__ == '__main__':
