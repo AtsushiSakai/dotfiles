@@ -1,3 +1,2 @@
 #!/bin/sh
 echo "pre-commit test start!!"
-ls
