@@ -15,16 +15,6 @@ def main():
     clone_dotfiles()
     add_mybashrc_sourse_on_bashrc()
     install_enhancd()
-    setup_git()
-
-
-def setup_git():
-    u"""
-    setup git dotfiles
-    """
-    print("[setup_git]")
-    cmd = "ln -s ~/dotfiles/git/pre-commit ~/.git/hooks/pre-commit"
-    subprocess.call(cmd, shell=True)
 
 
 def install_enhancd():
