@@ -15,6 +15,17 @@ def main():
     clone_dotfiles()
     add_mybashrc_sourse_on_bashrc()
     install_enhancd()
+    install_pip()
+
+
+def install_pip():
+    u"""
+    install enhancd
+    """
+    print("[install_enhancd]")
+
+    cmd = "curl -kL https://bootstrap.pypa.io/get-pip.py | sudo python"
+    subprocess.call(cmd, shell=True)
 
 
 def install_enhancd():
