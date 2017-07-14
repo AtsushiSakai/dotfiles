@@ -5,10 +5,6 @@
 
 export HISTSIZE=10000
 
-# for pyenv
-# export PATH="$HOME/.pyenv/bin:$PATH"
-eval "$(pyenv init -)"
-
 # for percol setting
 source ~/dotfiles/mypercol.bash
 
@@ -23,3 +19,11 @@ function share_history {
 }
 PROMPT_COMMAND='share_history'
 shopt -u histappend
+
+# for pyenv
+# export PATH="$HOME/.pyenv/bin:$PATH"
+eval "$(pyenv init -)"
+
+source /usr/local/etc/bash_completion.d/git-prompt.sh
+source /usr/local/etc/bash_completion.d/git-completion.bash
+
