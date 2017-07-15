@@ -4,9 +4,7 @@
 # echo "Source mypercol"
 
 #========history search=======
-# 重複履歴を無視
 export HISTCONTROL=ignoreboth:erasedups
-#historyの保存の数を10000に
 export HISTSIZE=10000
 
 _replace_by_history() {
