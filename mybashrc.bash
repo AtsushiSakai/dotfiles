@@ -3,6 +3,10 @@
 # author: Atsushi Sakai
 # echo "Source mybashrc"
 
+alias rm='rm -i'
+alias cp='cp -i'
+alias mv='mv -i'
+
 export HISTSIZE=10000
 
 # for percol setting
