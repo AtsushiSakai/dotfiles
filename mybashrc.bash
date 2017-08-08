@@ -6,6 +6,7 @@
 alias rm='rm -i'
 alias cp='cp -i'
 alias mv='mv -i'
+alias ls='exa -l --git'
 
 export HISTSIZE=10000
 
@@ -25,8 +26,10 @@ PROMPT_COMMAND='share_history'
 shopt -u histappend
 
 # for pyenv
-# export PATH="$HOME/.pyenv/bin:$PATH"
-eval "$(pyenv init -)"
+if [ -x "`which pyenv `" ]; then
+    # export PATH="$HOME/.pyenv/bin:$PATH"
+    eval "$(pyenv init -)"
+fi 
 
 source /usr/local/etc/bash_completion.d/git-prompt.sh
 source /usr/local/etc/bash_completion.d/git-completion.bash
