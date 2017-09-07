@@ -10,6 +10,11 @@ alias ls='exa -l --git'
 
 export HISTSIZE=10000
 
+git config --global user.name "Atsushi Sakai"
+git config --global user.email "asakai.amsl@gmail.com"
+git config --global color.ui auto
+git config --global core.editor 'vim -c "set fenc=utf-8"'
+
 # for percol setting
 source ~/dotfiles/mypercol.bash
 
