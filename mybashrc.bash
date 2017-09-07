@@ -6,7 +6,7 @@
 alias rm='rm -i'
 alias cp='cp -i'
 alias mv='mv -i'
-alias ls='exa -l --git'
+alias lls='exa -l --git'
 
 export HISTSIZE=10000
 
