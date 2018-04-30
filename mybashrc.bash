@@ -3,6 +3,9 @@
 # author: Atsushi Sakai
 # echo "Source mybashrc"
 
+export PATH=$PATH:~/dotfiles/src/peco/windows/peco.exe
+
+
 alias rm='rm -i'
 alias cp='cp -i'
 alias mv='mv -i'
