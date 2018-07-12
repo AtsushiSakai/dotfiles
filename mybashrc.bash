@@ -23,13 +23,13 @@ source ~/dotfiles/mypercol.bash
 source ~/dotfiles/src/enhancd/init.sh
 
 # share bash history
-function share_history {
-    history -a
-    history -c
-    history -r
-}
-PROMPT_COMMAND='share_history'
-shopt -u histappend
+# function share_history {
+    # history -a
+    # history -c
+    # history -r
+# }
+# PROMPT_COMMAND='share_history'
+# shopt -u histappend
 
 # for pyenv
 if [ -x "`which pyenv `" ]; then
