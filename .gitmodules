@@ -1,0 +1,3 @@
+[submodule "myvim"]
+	path = myvim
+	url = https://github.com/AtsushiSakai/myvim
