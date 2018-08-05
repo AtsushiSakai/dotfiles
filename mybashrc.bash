@@ -10,6 +10,8 @@ alias cp='cp -i'
 alias mv='mv -i'
 alias lls='exa -l --git'
 
+alias pyjsonviewer='python -c "from pyjsonviewer import pyjsonviewer;pyjsonviewer.main()"'
+
 export HISTSIZE=10000
 
 git config --global user.name "Atsushi Sakai"
