@@ -10,7 +10,7 @@ alias cp='cp -i'
 alias mv='mv -i'
 alias lls='exa -l --git'
 
-alias pyjsonviewer='python -c "from pyjsonviewer import pyjsonviewer;pyjsonviewer.main()"'
+alias pyjsonviewer='python -m pyjsonviewer'
 
 export HISTSIZE=10000
 
