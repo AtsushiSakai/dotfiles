@@ -10,6 +10,14 @@ alias cp='cp -i'
 alias mv='mv -i'
 alias lls='exa -l --git'
 
+# ls with color
+if [ "$(uname)" = 'Darwin' ]; then
+    alias ls='ls -G'
+else
+    eval `dircolors ~/.colorrc`
+    alias ls='ls --color=auto'
+fi
+
 alias pyjsonviewer='python -m pyjsonviewer'
 
 export HISTSIZE=10000
