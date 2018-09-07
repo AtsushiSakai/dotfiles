@@ -25,6 +25,9 @@ export HISTSIZE=10000
 git config --global user.name "Atsushi Sakai"
 git config --global color.ui auto
 git config --global core.editor 'vim -c "set fenc=utf-8"'
+git config --global merge.tool vimdiff
+git config --global merge.conflictstyle diff3
+git config --global mergetool.prompt false
 
 # for percol setting
 source ~/dotfiles/mypercol.bash
@@ -51,4 +54,6 @@ if [ -e /usr/local/etc/bash_completion.d/git-prompt.sh ]; then
     source /usr/local/etc/bash_completion.d/git-prompt.sh
     source /usr/local/etc/bash_completion.d/git-completion.bash
 fi
+
+export JULIA_NUM_THREADS=4
 
