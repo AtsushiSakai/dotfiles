@@ -3,8 +3,6 @@
 # author: Atsushi Sakai
 # echo "Source mybashrc"
 
-
-
 alias rm='rm -i'
 alias cp='cp -i'
 alias mv='mv -i'
@@ -45,10 +43,13 @@ source ~/dotfiles/src/enhancd/init.sh
 # shopt -u histappend
 
 # for pyenv
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$HOME/.pyenv/bin:$PATH"
+
 if [ -x "`which pyenv `" ]; then
-    # export PATH="$HOME/.pyenv/bin:$PATH"
     eval "$(pyenv init -)"
 fi 
+
 
 if [ -e /usr/local/etc/bash_completion.d/git-prompt.sh ]; then
     source /usr/local/etc/bash_completion.d/git-prompt.sh
