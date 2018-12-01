@@ -25,9 +25,12 @@ export HISTSIZE=10000
 git config --global user.name "Atsushi Sakai"
 git config --global color.ui auto
 git config --global core.editor 'vim -c "set fenc=utf-8"'
+
+# for git merge
 git config --global merge.tool vimdiff
 git config --global merge.conflictstyle diff3
 git config --global mergetool.prompt false
+git config --global mergetool.keepBackup false
 
 # for percol setting
 source ~/dotfiles/mypercol.bash
