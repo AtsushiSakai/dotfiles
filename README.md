@@ -11,6 +11,9 @@ Adding this code in your .bashrc
 
 > git clone https://github.com/b4b4r07/enhancd ~/dotfiles/src/enhancd/
 
+# bash completion
+
+- [Install Bash git completion · bobthecow/git\-flow\-completion Wiki](https://github.com/bobthecow/git-flow-completion/wiki/Install-Bash-git-completion)
 
 # plugins
 

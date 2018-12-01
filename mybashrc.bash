@@ -20,6 +20,9 @@ alias pyjsonviewer='python -m pyjsonviewer'
 
 export HISTSIZE=10000
 
+# bash completio for mac
+[ -f /usr/local/etc/bash_completion ] && . /usr/local/etc/bash_completion
+
 git config --global user.name "Atsushi Sakai"
 git config --global color.ui auto
 git config --global core.editor 'vim -c "set fenc=utf-8"'
@@ -52,12 +55,6 @@ export PATH="$HOME/.pyenv/bin:$PATH"
 if [ -x "`which pyenv `" ]; then
     eval "$(pyenv init -)"
 fi 
-
-
-if [ -e /usr/local/etc/bash_completion.d/git-prompt.sh ]; then
-    source /usr/local/etc/bash_completion.d/git-prompt.sh
-    source /usr/local/etc/bash_completion.d/git-completion.bash
-fi
 
 export JULIA_NUM_THREADS=4
 
