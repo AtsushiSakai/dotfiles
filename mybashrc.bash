@@ -18,6 +18,8 @@ fi
 
 alias pyjsonviewer='python -m pyjsonviewer'
 
+alias jupercol='find . -name "*.ipynb" -not -name '*checkpoint*'| percol | xargs jupyter notebook'
+
 export HISTSIZE=10000
 
 # bash completio for mac
@@ -56,5 +58,7 @@ if [ -x "`which pyenv `" ]; then
     eval "$(pyenv init -)"
 fi 
 
+# Julia setting
 export JULIA_NUM_THREADS=4
+export JULIA_EDITOR=vim
 
