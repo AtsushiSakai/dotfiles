@@ -11,14 +11,7 @@ alias lls='exa -l --git'
 # ls with color
 if [ "$(uname)" = 'Darwin' ]; then
     alias ls='ls -G'
-else
-    eval `dircolors ~/.colorrc`
-    alias ls='ls --color=auto'
 fi
-
-alias pyjsonviewer='python -m pyjsonviewer'
-
-alias jupercol='find . -name "*.ipynb" -not -name '*checkpoint*'| percol | xargs jupyter notebook'
 
 export HISTSIZE=10000
 
@@ -41,22 +34,18 @@ source ~/dotfiles/mypercol.bash
 # for enhancd setting
 source ~/dotfiles/src/enhancd/init.sh
 
-# share bash history
-# function share_history {
-    # history -a
-    # history -c
-    # history -r
-# }
-# PROMPT_COMMAND='share_history'
-# shopt -u histappend
-
 # for pyenv
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$HOME/.pyenv/bin:$PATH"
+if [ "$(expr substr $(uname -s) 1 10)" != 'MINGW64_NT' ]; then                                                                                           
+    if [ -x "`which pyenv `" ]; then
+        export PYENV_ROOT="$HOME/.pyenv"
+        export PATH="$HOME/.pyenv/bin:$PATH"
+        eval "$(pyenv init -)"
+    fi 
+fi
 
-if [ -x "`which pyenv `" ]; then
-    eval "$(pyenv init -)"
-fi 
+# alias
+alias pyjsonviewer='python -m pyjsonviewer'
+alias jupercol='find . -name "*.ipynb" -not -name '*checkpoint*'| percol | xargs jupyter notebook'
 
 # Julia setting
 export JULIA_NUM_THREADS=4
