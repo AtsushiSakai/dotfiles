@@ -18,6 +18,7 @@ export HISTSIZE=10000
 # bash completio for mac
 [ -f /usr/local/etc/bash_completion ] && . /usr/local/etc/bash_completion
 
+
 git config --global user.name "Atsushi Sakai"
 git config --global color.ui auto
 git config --global core.editor 'vim -c "set fenc=utf-8"'
@@ -34,14 +35,14 @@ source ~/dotfiles/mypercol.bash
 # for enhancd setting
 source ~/dotfiles/src/enhancd/init.sh
 
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$HOME/.pyenv/bin:$PATH"
 # for pyenv
-if [ "$(expr substr $(uname -s) 1 10)" != 'MINGW64_NT' ]; then                                                                                           
+#if [ "$(expr substr $(uname -s) 1 10)" != 'MINGW64_NT' ]; then                                                                                        
     if [ -x "`which pyenv `" ]; then
-        export PYENV_ROOT="$HOME/.pyenv"
-        export PATH="$HOME/.pyenv/bin:$PATH"
-        eval "$(pyenv init -)"
+       eval "$(pyenv init -)"
     fi 
-fi
+#fi
 
 # alias
 alias pyjsonviewer='python -m pyjsonviewer'
