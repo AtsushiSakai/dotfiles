@@ -1,12 +1,18 @@
 #!/bin/sh -x
-# mybashrc
+#
+# mybashrc setting
+#
 # author: Atsushi Sakai
+#
 # echo "Source mybashrc"
 
 alias rm='rm -i'
 alias cp='cp -i'
 alias mv='mv -i'
-alias lls='exa -l --git'
+
+if type "exa" > /dev/null 2>&1; then
+    alias lls='exa -l --git'
+fi
 
 # ls with color
 if [ "$(uname)" = 'Darwin' ]; then
@@ -18,6 +24,9 @@ export HISTSIZE=10000
 # bash completio for mac
 [ -f /usr/local/etc/bash_completion ] && . /usr/local/etc/bash_completion
 
+# ==== git setting ====
+alias gc="git commit -av"
+alias gp="git push"
 
 git config --global user.name "Atsushi Sakai"
 git config --global color.ui auto
@@ -37,8 +46,9 @@ source ~/dotfiles/src/enhancd/init.sh
 
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$HOME/.pyenv/bin:$PATH"
+
 # for pyenv
-#if [ "$(expr substr $(uname -s) 1 10)" != 'MINGW64_NT' ]; then                                                                                        
+#if [ "$(expr substr $(uname -s) 1 10)" != 'MINGW64_NT' ]; then                                            
     if [ -x "`which pyenv `" ]; then
        eval "$(pyenv init -)"
     fi 
