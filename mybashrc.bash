@@ -58,6 +58,7 @@ alias pyjsonviewer='python -m pyjsonviewer'
 alias jupercol='find . -name "*.ipynb" -not -name '*checkpoint*'| percol | xargs jupyter notebook'
 
 # Julia setting
+alias julia='julia --color=yes'
 export JULIA_NUM_THREADS=4
 export JULIA_EDITOR=vim
 
