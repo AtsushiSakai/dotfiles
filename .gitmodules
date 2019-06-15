@@ -4,3 +4,6 @@
 [submodule "src/enhancd"]
 	path = src/enhancd
 	url = https://github.com/b4b4r07/enhancd
+[submodule "src/esh"]
+	path = src/esh
+	url = https://github.com/AtsushiSakai/esh
