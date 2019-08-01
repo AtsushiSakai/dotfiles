@@ -28,8 +28,6 @@ export HISTSIZE=10000
 alias gc="git commit -av"
 alias gp="git push"
 
-#git config --global user.email "asakai.amsl+github@gmail.com"
-
 # Sample git setting
 git config --global user.name "Atsushi Sakai"
 git config --global color.ui auto
