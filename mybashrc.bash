@@ -30,6 +30,10 @@ alias gp="git push"
 
 git config --global user.useConfigOnly true
 
+# Sample git setting
+git config --global user.name "Atsushi Sakai"
+git config --global user.email "asakai.amsl+github@gmail.com"
+
 #git config --global user.name "Atsushi Sakai"
 #git config --global color.ui auto
 #git config --global core.editor 'vim -c "set fenc=utf-8"'
