@@ -18,9 +18,11 @@ export HISTSIZE=10000
 # bash completio for mac
 [ -f /usr/local/etc/bash_completion ] && . /usr/local/etc/bash_completion
 
+# git setting
 git config --global user.name "Atsushi Sakai"
 git config --global color.ui auto
 git config --global core.editor 'vim -c "set fenc=utf-8"'
+git config --global push.default simple
 
 # for git merge
 git config --global merge.tool vimdiff
