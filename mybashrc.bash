@@ -6,6 +6,8 @@
 #
 # echo "Source mybashrc"
 
+source ~/dotfiles/src/esh/esh.sh
+
 alias rm='rm -i'
 alias cp='cp -i'
 alias mv='mv -i'
@@ -31,6 +33,7 @@ alias gp="git push"
 git config --global user.name "Atsushi Sakai"
 git config --global color.ui auto
 git config --global core.editor 'vim -c "set fenc=utf-8"'
+git config --global core.quotepath false #for Japanese encode
 
 # for git merge
 git config --global merge.tool vimdiff
@@ -46,6 +49,7 @@ source ~/dotfiles/src/enhancd/init.sh
 
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$HOME/.pyenv/bin:$PATH"
+export PATH="$HOME/dotfiles/bin:$PATH"
 
 # for pyenv
 #if [ "$(expr substr $(uname -s) 1 10)" != 'MINGW64_NT' ]; then                                            
