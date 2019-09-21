@@ -30,10 +30,12 @@ export HISTSIZE=10000
 alias gc="git commit -av"
 alias gp="git push"
 
+# Sample git setting
 git config --global user.name "Atsushi Sakai"
 git config --global color.ui auto
 git config --global core.editor 'vim -c "set fenc=utf-8"'
 git config --global core.quotepath false #for Japanese encode
+git config --global push.default simple
 
 # for git merge
 git config --global merge.tool vimdiff
@@ -66,4 +68,5 @@ alias jupercol='find . -name "*.ipynb" -not -name '*checkpoint*'| percol | xargs
 alias julia='julia --color=yes'
 export JULIA_NUM_THREADS=4
 export JULIA_EDITOR=vim
+export JULIA_EXE_FOR_VIM="/usr/bin/julia"
 
