@@ -64,7 +64,7 @@ export PATH="$HOME/dotfiles/bin:$PATH"
 alias pyjsonviewer='python -m pyjsonviewer'
 alias jupercol='find . -name "*.ipynb" -not -name '*checkpoint*'| percol | xargs jupyter notebook'
 
-alias pipallupdate='pip list --outdated --format=freeze | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 pip install -U'
+alias pipallupdate='pip list --outdated --format=freeze | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 sudo -H pip install -U --user'
 
 # Julia setting
 alias julia='julia --color=yes'
