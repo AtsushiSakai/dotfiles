@@ -6,7 +6,8 @@ git pull origin master
 git pull --recurse-submodules origin master
 git submodule update --init --recursive
 git submodule foreach git pull origin master
-myvim/update_all.sh
+
+vim/update_all.sh
 
 # Update all python libraries
 pip list --outdated --format=freeze | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 sudo -H pip install -U --user
