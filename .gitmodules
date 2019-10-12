@@ -4,3 +4,51 @@
 [submodule "src/esh"]
 	path = src/esh
 	url = https://github.com/AtsushiSakai/esh
+[submodule "vim/.vim/pack/mypackage/start/mru"]
+	path = vim/.vim/pack/mypackage/start/mru
+	url = https://github.com/yegappan/mru
+[submodule "vim/.vim/pack/mypackage/start/nerdcommenter"]
+	path = vim/.vim/pack/mypackage/start/nerdcommenter
+	url = https://github.com/scrooloose/nerdcommenter
+[submodule "vim/.vim/pack/mypackage/start/grep.vim"]
+	path = vim/.vim/pack/mypackage/start/grep.vim
+	url = https://github.com/vim-scripts/grep.vim
+[submodule "vim/.vim/pack/mypackage/start/completor.vim"]
+	path = vim/.vim/pack/mypackage/start/completor.vim
+	url = https://github.com/maralla/completor.vim.git
+[submodule "vim/.vim/pack/mypackage/start/spelunker.vim"]
+	path = vim/.vim/pack/mypackage/start/spelunker.vim
+	url = https://github.com/kamykn/spelunker.vim
+[submodule "vim/.vim/pack/mypackage/start/vim-lsp"]
+	path = vim/.vim/pack/mypackage/start/vim-lsp
+	url = https://github.com/prabirshrestha/vim-lsp
+[submodule "vim/.vim/pack/mypackage/start/async.vim"]
+	path = vim/.vim/pack/mypackage/start/async.vim
+	url = https://github.com/prabirshrestha/async.vim
+[submodule "vim/.vim/pack/mypackage/start/vim-quickrun"]
+	path = vim/.vim/pack/mypackage/start/vim-quickrun
+	url = https://github.com/thinca/vim-quickrun.git
+[submodule "vim/.vim/pack/mypackage/start/ale"]
+	path = vim/.vim/pack/mypackage/start/ale
+	url = https://github.com/w0rp/ale
+[submodule "vim/.vim/pack/mypackage/start/vim-abolish"]
+	path = vim/.vim/pack/mypackage/start/vim-abolish
+	url = https://github.com/tpope/vim-abolish.git
+[submodule "vim/.vim/pack/mypackage/start/open-browser-github.vim"]
+	path = vim/.vim/pack/mypackage/start/open-browser-github.vim
+	url = https://github.com/tyru/open-browser-github.vim.git
+[submodule "vim/.vim/pack/mypackage/start/open-browser.vim"]
+	path = vim/.vim/pack/mypackage/start/open-browser.vim
+	url = https://github.com/tyru/open-browser.vim.git
+[submodule "vim/.vim/pack/mypackage/opt/julia.vim"]
+	path = vim/.vim/pack/mypackage/opt/julia.vim
+	url = https://github.com/AtsushiSakai/julia.vim
+[submodule "vim/.vim/pack/mypackage/opt/previm"]
+	path = vim/.vim/pack/mypackage/opt/previm
+	url = https://github.com/kannokanno/previm
+[submodule "vim/.vim/pack/mypackage/opt/julia-vim"]
+	path = vim/.vim/pack/mypackage/opt/julia-vim
+	url = https://github.com/JuliaEditorSupport/julia-vim.git
+[submodule "vim/.vim/pack/mypackage/opt/vim-pydocstring"]
+	path = vim/.vim/pack/mypackage/opt/vim-pydocstring
+	url = https://github.com/heavenshell/vim-pydocstring
