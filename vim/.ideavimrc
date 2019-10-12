@@ -1,0 +1,35 @@
+" -------------------------------------
+" ideavim setting for Jetbrains IDE 
+"" ------------------------------------
+" TODO 
+" - Difinition jump
+
+" common setting
+set clipboard+=unnamed
+set hlsearch
+set incsearch
+set ignorecase
+set smartcase
+
+" comment toggle with cc
+nnoremap cc :action CommentByLineComment<CR>
+vnoremap cc :action CommentByLineComment<CR>
+
+" show intention actions for generating doc string
+nnoremap <C-d> :action ShowIntentionActions<CR>
+
+" show file history (MRU)
+nnoremap <space><space> :action RecentFiles<CR>
+
+" grep 
+vnoremap gr :action FindInPath<CR>
+
+" jump to last change
+nnoremap g; :action JumpToLastChange<CR>
+
+" vim completion
+imap <C-n> <ESC>:action HippieCompletion<CR>a
+
+" Rename element
+nnoremap <space>r :action RenameElement<CR>
+
