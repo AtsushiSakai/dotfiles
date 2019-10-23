@@ -106,6 +106,7 @@ nmap <silent> <Esc><Esc> :nohlsearch<CR>
 
 "別ファイルで修正された場合に自動読み込み"
 set autoread
+set mouse=a             " for window size adustment in ubuntu
 set ttymouse=xterm2     " setup high function mouse
 set hidden              " バッファを閉じる代わりに隠す（Undo履歴を残すため）
 set switchbuf=useopen   " 新しく開く代わりにすでに開いてあるバッファを開く
@@ -315,7 +316,7 @@ set path+=$V_ROS_ROOT+$V_ROS_TOOLS
 "source ~/.vim/script/ComfortableCpp.vim
 
 "gvimのCdCurrentを設定 "
-"command! -nargs=0 CdCurrent cd %:p:h
+command! -nargs=0 CdCurrent cd %:p:h
 
 " Ctrl x completion
 let s:compl_key_dict = {
