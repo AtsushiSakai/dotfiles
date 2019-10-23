@@ -10,7 +10,7 @@ scriptencoding utf-8
 set fileencoding=utf-8 
 set fileencodings=utf-8
 
-let g:myvimpath = $HOME . '/dotfiles/myvim/'
+let g:myvimpath = $HOME . '/dotfiles/vim/'
 let g:win_myvimpath = "~\myvim"
 
 "autocmd用 autocmdのすべてにautocmd vimrcとすること
