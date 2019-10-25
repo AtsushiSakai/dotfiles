@@ -1,6 +1,6 @@
 " vim configuration for json
 " Author: Atsushi Sakai
- echo "json on"
+ "echo "json on"
 
 "JSON format
 function! JsonFormat()
