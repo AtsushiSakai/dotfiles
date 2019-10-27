@@ -3,7 +3,7 @@ FROM jenkins/jenkins:lts
 # docker daemonの動いているホストのGIDを指定する
 # docker run -v /var/run/docker.sock:/var/run/docker.sock で
 # ホストのdocker daemonを共有する前提
-ENV DOCKER_GROUP_GID 501
+ENV DOCKER_GROUP_GID 0
 
 USER root
 
