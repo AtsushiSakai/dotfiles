@@ -7,6 +7,7 @@ git pull --recurse-submodules origin master
 git submodule update --init --recursive
 git submodule foreach git pull origin master
 
+# update vim setting
 vim/update_all.sh
 
 # Update all python libraries

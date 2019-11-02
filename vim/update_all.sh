@@ -29,6 +29,12 @@ echo "Julia"
 julia -e 'using Pkg;Pkg.add("LanguageServer")'
 julia -e 'using Pkg;Pkg.add("SymbolServer")'
 julia -e 'using Pkg;Pkg.add("StaticLint")'
+echo "bash"
+if type npm > /dev/null 2>&1; then 
+    npm i -g bash-language-server
+else 
+    echo "not installed npm command.."
+fi
 
 echo "$(basename $0) done!"
 exit 0
