@@ -17,7 +17,7 @@ if has('terminal')
     function! s:JuliaREPL()
         :vert term ++close bash -c julia 
     endfunction
-    command! JuliaREPL :call s:JuliaREPL() " Open JuliaREPL
+    command! REPL :call s:JuliaREPL() " Open JuliaREPL
 end
 
 

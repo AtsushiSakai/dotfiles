@@ -54,11 +54,11 @@ export PATH="$HOME/.pyenv/bin:$PATH"
 export PATH="$HOME/dotfiles/bin:$PATH"
 
 # for pyenv
-#if [ "$(expr substr $(uname -s) 1 10)" != 'MINGW64_NT' ]; then                                            
+if type npm > /dev/null 2>&1; then
     if [ -x "`which pyenv `" ]; then
        eval "$(pyenv init -)"
     fi 
-#fi
+fi
 
 # alias
 alias pyjsonviewer='python -m pyjsonviewer'
