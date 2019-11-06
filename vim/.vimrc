@@ -183,12 +183,12 @@ cabbr w!! w !sudo tee > /dev/null %
 nnoremap <space>. :<c-u>tabedit $MYVIMRC<CR>
 
 "Open help.md
-nnoremap <space>h :<c-u>tabedit ~/myvim/help.md<CR>
+nnoremap <space>h :<c-u>tabedit ~/dotfiles/vim/help.md<CR>
 
 ":Vimrcsourceでvimrcを読み込む"
 if !exists('*Vimrcsource')
   function! Vimrcsource()
-    source ~/myvim/.vimrc
+    source ~/.vimrc
   endfunction
   command! Vimrcsource :call Vimrcsource()
 endif
