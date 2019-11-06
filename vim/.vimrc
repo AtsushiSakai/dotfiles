@@ -376,10 +376,6 @@ end
 set laststatus=2
 set statusline=%<%f%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [ASCII=\%03.3b]\ [HEX=\%02.2B]\ [ENC=%{&fileencoding}]
 
-" LSP Setting
-let g:lsp_log_verbose = 1  " デバッグ用ログを出力
-"let g:lsp_log_file = expand('~/.cache/tmp/vim-lsp.log')  " ログ出力のPATHを設定
-
 " Language Server setting
 let g:lsp_log_verbose = 1
 let g:lsp_log_file = expand('~/vim-lsp.log')
@@ -402,7 +398,7 @@ augroup MyLsp
   " For Julia (this does not work in windows)
   if executable('julia') && g:this_is_win == 0
     let s:julia_exe = $JULIA_EXE_FOR_VIM
-    let s:julia_lsp_startscript = g:myvimpath . '/.vim/script/startlanguageserver.jl'
+    let s:julia_lsp_startscript = g:myvimpath . '.vim/script/startlanguageserver.jl'
     autocmd User lsp_setup call lsp#register_server({
     \ 'name': 'julia',
     \ 'cmd': {server_info->[s:julia_exe, '--startup-file=no', '--history-file=no', s:julia_lsp_startscript]},
