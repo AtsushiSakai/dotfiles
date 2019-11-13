@@ -52,3 +52,6 @@
 [submodule "vim/.vim/pack/mypackage/opt/vim-pydocstring"]
 	path = vim/.vim/pack/mypackage/opt/vim-pydocstring
 	url = https://github.com/heavenshell/vim-pydocstring
+[submodule "vim/.vim/pack/mypackage/start/Jenkinsfile-vim-syntax"]
+	path = vim/.vim/pack/mypackage/start/Jenkinsfile-vim-syntax
+	url = https://github.com/martinda/Jenkinsfile-vim-syntax
