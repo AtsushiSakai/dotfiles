@@ -373,8 +373,9 @@ if has('terminal')
 end
 
 " Statuslineの設定
+let ff_table = {'dos' : 'CR+LF', 'unix' : 'LF', 'mac' : 'CR' }
 set laststatus=2
-set statusline=%<%f%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [ASCII=\%03.3b]\ [HEX=\%02.2B]\ [ENC=%{&fileencoding}]
+set statusline=%t\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ %{fugitive#statusline()}\ [%{ff_table[&ff]}]\ [ENC=%{&fileencoding}]
 
 " Language Server setting
 let g:lsp_log_verbose = 1
