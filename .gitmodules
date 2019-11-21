@@ -58,3 +58,6 @@
 [submodule "vim/.vim/pack/mypackage/start/vim-fugitive"]
 	path = vim/.vim/pack/mypackage/start/vim-fugitive
 	url = https://github.com/tpope/vim-fugitive
+[submodule "vim/.vim/pack/mypackage/start/winresizer"]
+	path = vim/.vim/pack/mypackage/start/winresizer
+	url = git@github.com:simeji/winresizer.git
