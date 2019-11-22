@@ -57,7 +57,7 @@
 	url = https://github.com/martinda/Jenkinsfile-vim-syntax
 [submodule "vim/.vim/pack/mypackage/start/vim-fugitive"]
 	path = vim/.vim/pack/mypackage/start/vim-fugitive
-	url = https://github.com/tpope/vim-fugitive
+	url = git@github.com:tpope/vim-fugitive.git
 [submodule "vim/.vim/pack/mypackage/start/winresizer"]
 	path = vim/.vim/pack/mypackage/start/winresizer
 	url = git@github.com:simeji/winresizer.git
