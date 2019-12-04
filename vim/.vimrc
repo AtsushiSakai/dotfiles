@@ -87,6 +87,9 @@ nnoremap N Nzzzv
 
 set nofoldenable    " disable folding
 
+let g:netrw_banner = 0
+let g:netrw_liststyle = 3
+
 " Initial template setting
 augroup templateGroup
 autocmd!
