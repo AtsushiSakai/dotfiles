@@ -10,6 +10,16 @@ scriptencoding utf-8
 set fileencoding=utf-8 
 set fileencodings=utf-8
 
+source $VIMRUNTIME/defaults.vim
+
+" setup colorscheme
+colorscheme darkblue
+
+" Do not read vimrc at git commit 
+if $HOME != $USERPROFILE && $GIT_EXEC_PATH != ''
+  finish
+end
+
 let g:myvimpath = $HOME . '/dotfiles/vim/'
 let g:win_myvimpath = "~\myvim"
 
@@ -18,10 +28,6 @@ augroup vimrc
   autocmd! 
 augroup END
 
-source $VIMRUNTIME/defaults.vim
-
-" setup colorscheme
-colorscheme darkblue
 
 "=====Set up filetype===="
 filetype on
@@ -86,9 +92,6 @@ nnoremap n nzzzv
 nnoremap N Nzzzv
 
 set nofoldenable    " disable folding
-
-let g:netrw_banner = 0
-"let g:netrw_liststyle = 3
 
 " Initial template setting
 augroup templateGroup
@@ -453,20 +456,6 @@ augroup MyLsp
 endif
 
 augroup END
-
-""" Automatic hover docstring like IDE """
-autocmd CursorMoved,CursorMovedI * call s:cursor_moved()
-function! s:cursor_moved() abort
-    if exists('s:timer_id')
-        call timer_stop(s:timer_id)
-    endif
-    let s:timer_id = timer_start(3000, function('s:enable_hover'))
-endfunction
-
-function! s:enable_hover(timer_id) abort
-    ":LspHover
-endfunction
-
 
 function! s:configure_lsp() abort
   setlocal omnifunc=lsp#complete
