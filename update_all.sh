@@ -11,7 +11,8 @@ git submodule foreach git pull origin master
 vim/update_all.sh
 
 # Update all python libraries
-pip list --outdated --format=freeze | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 sudo -H pip install -U --user
+pip install --upgrade pip
+pip list --outdated --format=freeze | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 sudo -H pip install -U --user --no-warn-script-location
 
 echo "$(basename $0) done!"
 exit 0
