@@ -21,7 +21,13 @@ if [ "$(uname)" = 'Darwin' ]; then
     alias ls='ls -G'
 fi
 
+
+# ==== bash history setting ====
 export HISTSIZE=10000
+
+# save command history immediately setting
+shopt -s histappend
+PROMPT_COMMAND="history -a;$PROMPT_COMMAND"
 
 # bash completio for mac
 [ -f /usr/local/etc/bash_completion ] && . /usr/local/etc/bash_completion
