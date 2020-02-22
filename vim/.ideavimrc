@@ -33,3 +33,7 @@ imap <C-n> <ESC>:action HippieCompletion<CR>a
 " Rename element
 nnoremap <space>r :action RenameElement<CR>
 
+" highlight off (does not work on ideavim)
+"nnoremap <ESC><ESC> :noh<CR>
+
+
