@@ -19,6 +19,7 @@ fi
 # ls with color
 if [ "$(uname)" = 'Darwin' ]; then
     alias ls='ls -G'
+    alias brewupdate='brew update && brew upgrade && brew cleanup'
 fi
 
 
@@ -35,6 +36,7 @@ PROMPT_COMMAND="history -a;$PROMPT_COMMAND"
 # ==== git setting ====
 alias gc="git commit -av"
 alias gp="git push"
+alias g='git branch;git status'
 
 # Sample git setting
 git config --global user.name "Atsushi Sakai"
