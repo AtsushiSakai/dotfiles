@@ -61,3 +61,6 @@
 [submodule "vim/.vim/pack/mypackage/start/winresizer"]
 	path = vim/.vim/pack/mypackage/start/winresizer
 	url = git@github.com:simeji/winresizer.git
+[submodule "vim/.vim/pack/mypackage/start/vim-surround"]
+	path = vim/.vim/pack/mypackage/start/vim-surround
+	url = https://github.com/tpope/vim-surround.git

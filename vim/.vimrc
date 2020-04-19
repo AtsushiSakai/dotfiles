@@ -466,5 +466,5 @@ function! s:configure_lsp() abort
   nnoremap <buffer> gQ :<C-u>LspDocumentFormat<CR>
   vnoremap <buffer> gQ :LspDocumentRangeFormat<CR>
   nnoremap <buffer> <F1> :<C-u>LspImplementation<CR>
-  nnoremap <buffer> <space>r :<C-u>LspRename<CR>
+  nnoremap <buffer> <F6> :<C-u>LspRename<CR>
 endfunction

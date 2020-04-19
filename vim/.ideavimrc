@@ -36,4 +36,7 @@ nnoremap <space>r :action RenameElement<CR>
 " highlight off (does not work on ideavim)
 "nnoremap <ESC><ESC> :noh<CR>
 
+" === enable plugin ===
+" surround vim
+set surround
 
