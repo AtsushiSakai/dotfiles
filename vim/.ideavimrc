@@ -11,6 +11,10 @@ set incsearch
 set ignorecase
 set smartcase
 
+" Ref: Select mode · JetBrains/ideavim Wiki https://github.com/JetBrains/ideavim/wiki/Select-mode
+" Ref: https://blog.sebastian-daschner.com/entries/using-vim-intellij
+set idearefactormode=keep
+
 " comment toggle with cc
 nnoremap cc :action CommentByLineComment<CR>
 vnoremap cc :action CommentByLineComment<CR>
@@ -32,6 +36,7 @@ imap <C-n> <ESC>:action HippieCompletion<CR>a
 
 " Rename element
 nnoremap <space>r :action RenameElement<CR>
+
 
 " highlight off (does not work on ideavim)
 "nnoremap <ESC><ESC> :noh<CR>
