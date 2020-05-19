@@ -57,17 +57,6 @@ source ~/dotfiles/mypercol.bash
 # for enhancd setting
 source ~/dotfiles/src/enhancd/init.sh
 
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$HOME/.pyenv/bin:$PATH"
-export PATH="$HOME/dotfiles/bin:$PATH"
-
-# for pyenv
-if type npm > /dev/null 2>&1; then
-    if [ -x "`which pyenv `" ]; then
-       eval "$(pyenv init -)"
-    fi 
-fi
-
 # alias
 alias pyjsonviewer='python -m pyjsonviewer'
 alias jupercol='find . -name "*.ipynb" -not -name '*checkpoint*'| percol | xargs jupyter notebook'

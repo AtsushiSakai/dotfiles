@@ -461,10 +461,11 @@ function! s:configure_lsp() abort
   setlocal omnifunc=lsp#complete
   nnoremap <buffer> gd :<C-u>LspReferences<CR>
   nnoremap <buffer> gD :<C-u>LspDefinition<CR>
-  nnoremap <buffer> K :<C-u>LspHover<CR>
+  nnoremap <buffer> <F1> :<C-u>LspHover<CR>
+  nnoremap <buffer> <F2> :<C-u>LspNextDiagnostic<CR>
   "nnoremap <buffer> gS :<C-u>LspWorkspaceSymbol<CR>
   nnoremap <buffer> gQ :<C-u>LspDocumentFormat<CR>
   vnoremap <buffer> gQ :LspDocumentRangeFormat<CR>
-  nnoremap <buffer> <F1> :<C-u>LspImplementation<CR>
+  nnoremap <buffer> <F3> :<C-u>LspImplementation<CR>
   nnoremap <buffer> <F6> :<C-u>LspRename<CR>
 endfunction
