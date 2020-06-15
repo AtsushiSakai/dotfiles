@@ -1,0 +1,22 @@
+[user]
+	name = Atsushi Sakai
+[color]
+	ui = auto
+[core]
+	editor = vim -c \"set fenc=utf-8\"
+	autocrlf = input
+	quotepath = false
+[merge]
+	tool = vimdiff
+	conflictstyle = diff3
+[mergetool]
+	prompt = false
+	keepBackup = false
+[push]
+	default = simple
+[github]
+	user = AtsushiSakai
+[diff]
+	ignoreSubmodules = dirty
+[alias]
+    p = !git push origin `git rev-parse --abbrev-ref HEAD`
