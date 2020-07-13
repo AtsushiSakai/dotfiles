@@ -216,7 +216,7 @@ let g:this_is_win = 0
 "OS毎の設定
 if stridx(system('uname'),'Dar')!=-1
     " Mac環境用のコード
-    " echo 'This is mac'
+     "echo 'This is mac'
 
     " Mac の辞書.appで開く {{{
     " 引数に渡したワードを検索
@@ -260,13 +260,7 @@ elseif stridx(system('uname'),'Linu')!=-1
     " Linux用のコード
     "echo 'This is unix'
 
-    "日本語入力をノーマルモードでオフにする
-    function! ImInActivate()
-      call system('fcitx-remote -c')
-    endfunction
-    inoremap <silent> <C-[> <ESC>:call ImInActivate()<CR>
-
-    " Open finder
+    "" Open finder
     command! Open !Open .
 
 
