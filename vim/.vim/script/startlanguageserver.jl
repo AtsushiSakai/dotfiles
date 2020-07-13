@@ -1,6 +1,5 @@
-import LanguageServer
 import Pkg
-import SymbolServer
+using LanguageServer, LanguageServer.SymbolServer
 
 envpath = dirname(Pkg.Types.Context().env.project_file)
 
@@ -11,7 +10,5 @@ else
     joinpath(ENV["HOME"], DEPOT_DIR_NAME)
 end
 
-server = LanguageServer.LanguageServerInstance(stdin, stdout, false, envpath, depotpath, Dict())
-server.runlinter = true
-run(server)
+runserver()
 
