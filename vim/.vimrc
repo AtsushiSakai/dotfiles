@@ -51,24 +51,7 @@ let g:quickrun_config._ = {
       \ 'outputter/buffer/close_on_empty' : 1,
       \ }
 
-"<F5> code run
-function! Exe()
-  echo "Exe"
-  let filename = expand('%:t')
-  if stridx(filename, ".py") != -1 
-    !python %
-  elseif stridx(filename, ".jl") != -1
-    !julia %
-  elseif stridx(filename, ".cpp") != -1 
-    !./build_run.sh
-  elseif stridx(filename, ".sh") != -1 
-	!./%
-  else
-	QuickRun
-  endif
-endfunction
-command! Exe :call Exe()
-
+command! Exe :QuickRun
 nmap <F5> :Exe
 
 " Ideavim compatible map
@@ -131,9 +114,7 @@ set backupdir=~/.vim/backup/
 set undofile
 set undodir=~/.vim/undo/
 set noswapfile
-
 set number "line number
-
 set cindent "auto indent
 
 " テキスト挿入中の自動折り返しを日本語に対応させる
@@ -263,7 +244,6 @@ elseif stridx(system('uname'),'Linu')!=-1
     "" Open finder
     command! Open !Open .
 
-
 endif
 
 "======Interactive Replace======"
@@ -288,32 +268,6 @@ let Grep_Skip_Files = '*.bak *~'  "バックアップファイルを無視する
 
 " grでカーソル下のキーワードを再帰grep
 nnoremap <expr> gr ':Rgrep<CR>'
-
-"========ROS=======
-let $V_ROS_ROOT='/opt/ros/fuerte/include'
-let $V_ROS_TOOLS='~/fuerte_workspace/Tools/'
-set path+=$V_ROS_ROOT+$V_ROS_TOOLS
-
-"ROSのトピックのリストを表示するコマンドを有効にする
-"source ~/.vim/script/RosTopicList.vim
-
-"ROSのmsgの構成を表示するコマンドを有効にする
-"source ~/.vim/script/RosmsgShow.vim
-
-"SVN Commit時にsvn diffの結果を追加する
-"source ~/.vim/script/svndiffandcommit.vim
-
-"catkin_makeを実施するコマンドを有効化
-"source ~/.vim/script/RosCatkinMake.vim
-
-"catkin_makeを実施するコマンドを有効化
-"source ~/.vim/script/DecimalChange.vim
-
-"Translateコマンド
-"source ~/.vim/script/Translate.vim
-
-"Cppコマンド
-"source ~/.vim/script/ComfortableCpp.vim
 
 "gvimのCdCurrentを設定 "
 command! -nargs=0 CdCurrent cd %:p:h
@@ -380,76 +334,6 @@ set statusline=%t\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ %{fugitive#statusline()}\ [%{ff_t
 " Language Server setting
 let g:lsp_log_verbose = 1
 let g:lsp_log_file = expand('~/vim-lsp.log')
-
-augroup MyLsp
-  autocmd!
-
-  " For Python
-  if executable('pyls')
-    autocmd User lsp_setup call lsp#register_server({
-        \ 'name': 'pyls',
-        \ 'cmd': { server_info -> ['pyls'] },
-        \ 'whitelist': ['python'],
-        \ 'workspace_config': {'pyls': {'plugins': {
-        \   'jedi_definition': {'follow_imports': v:true, 'follow_builtin_imports': v:true},}}}
-        \})
-    autocmd FileType python call s:configure_lsp()
-  endif
-
-  " For Julia (this does not work in windows)
-  if executable('julia') && g:this_is_win == 0
-    let s:julia_exe = $JULIA_EXE_FOR_VIM
-    let s:julia_lsp_startscript = g:myvimpath . '.vim/script/startlanguageserver.jl'
-    autocmd User lsp_setup call lsp#register_server({
-    \ 'name': 'julia',
-    \ 'cmd': {server_info->[s:julia_exe, '--startup-file=no', '--history-file=no', s:julia_lsp_startscript]},
-    \ 'whitelist': ['julia'],
-    \ })
-  endif
-
-  " for java
-  if executable('java') && filereadable(expand('~/lsp/eclipse.jdt.ls/plugins/org.eclipse.equinox.launcher_1.5.300.v20190213-1655.jar'))
-    au User lsp_setup call lsp#register_server({
-        \ 'name': 'eclipse.jdt.ls',
-        \ 'cmd': {server_info->[
-        \     'java',
-        \     '-Declipse.application=org.eclipse.jdt.ls.core.id1',
-        \     '-Dosgi.bundles.defaultStartLevel=4',
-        \     '-Declipse.product=org.eclipse.jdt.ls.core.product',
-        \     '-Dlog.level=ALL',
-        \     '-noverify',
-        \     '-Dfile.encoding=UTF-8',
-        \     '-Xmx1G',
-        \     '-jar',
-        \     expand('~/lsp/eclipse.jdt.ls/plugins/org.eclipse.equinox.launcher_1.5.300.v20190213-1655.jar'),
-        \     '-configuration',
-        \     expand('~/lsp/eclipse.jdt.ls/config_mac'),
-        \     '-data',
-        \     getcwd()
-        \ ]},
-        \ 'whitelist': ['java'],
-        \ })
-
-    " for cpp
-    if executable('clangd')
-        au User lsp_setup call lsp#register_server({
-            \ 'name': 'clangd',
-            \ 'cmd': {server_info->['clangd', '-background-index']},
-            \ 'whitelist': ['c', 'cpp', 'objc', 'objcpp'],
-            \ })
-    endif
-    
-    " for bash
-    if executable('bash-language-server')
-        au User lsp_setup call lsp#register_server({
-        \ 'name': 'bash-language-server',
-        \ 'cmd': {server_info->[&shell, &shellcmdflag, 'bash-language-server start']},
-        \ 'whitelist': ['sh'],
-        \ })
-    endif
-endif
-
-augroup END
 
 function! s:configure_lsp() abort
   setlocal omnifunc=lsp#complete

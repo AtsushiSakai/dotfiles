@@ -8,6 +8,7 @@
 
 source ~/dotfiles/src/esh/esh.sh
 
+
 alias rm='rm -i'
 alias cp='cp -i'
 alias mv='mv -i'
@@ -22,6 +23,11 @@ if [ "$(uname)" = 'Darwin' ]; then
     alias brewupdate='brew update && brew upgrade && brew cleanup'
 fi
 
+parse_git_branch() {
+  git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
+}
+
+export PS1="\u@\h \W\[\033[32m\]\$(parse_git_branch)\[\033[00m\] $ "
 
 # ==== bash history setting ====
 export HISTSIZE=10000
@@ -67,5 +73,4 @@ alias pipallupdate='pip list --outdated --format=freeze | grep -v '^\-e' | cut -
 alias julia='julia --color=yes'
 export JULIA_NUM_THREADS=4
 export JULIA_EDITOR=vim
-export JULIA_EXE_FOR_VIM="/usr/bin/julia"
 

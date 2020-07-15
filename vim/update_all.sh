@@ -1,5 +1,6 @@
 #!/bin/bash
 echo "$(basename $0) start!"
+
 echo "update vim it's self"
 if [ "$(uname)" == 'Darwin' ]; then
     brew upgrade vim
@@ -21,31 +22,6 @@ git pull
 git pull --recurse-submodules
 git submodule update --init --recursive
 git submodule foreach git pull origin master
-
-echo "======Update language server======="
-echo "Python"
-if type python > /dev/null 2>&1; then 
-    pip install -U python-language-server
-else 
-    echo "not installed julia command.."
-fi
-
-echo "Julia"
-if type julia > /dev/null 2>&1; then 
-    julia -e 'using Pkg;Pkg.add("LanguageServer")'
-    julia -e 'using Pkg;Pkg.add("SymbolServer")'
-    julia -e 'using Pkg;Pkg.add("StaticLint")'
-else 
-    echo "not installed julia command.."
-fi
-
-echo "bash"
-if type npm > /dev/null 2>&1; then 
-    npm install -g npm
-    npm i -g bash-language-server
-else 
-    echo "not installed npm command.."
-fi
 
 echo "$(basename $0) done!"
 exit 0
