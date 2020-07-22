@@ -334,16 +334,26 @@ set statusline=%t\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ %{fugitive#statusline()}\ [%{ff_t
 " Language Server setting
 let g:lsp_log_verbose = 1
 let g:lsp_log_file = expand('~/vim-lsp.log')
+let g:lsp_diagnostics_echo_cursor = 1
 
-function! s:configure_lsp() abort
-  setlocal omnifunc=lsp#complete
-  nnoremap <buffer> gd :<C-u>LspReferences<CR>
-  nnoremap <buffer> gD :<C-u>LspDefinition<CR>
-  nnoremap <buffer> <F1> :<C-u>LspHover<CR>
-  nnoremap <buffer> <F2> :<C-u>LspNextDiagnostic<CR>
-  "nnoremap <buffer> gS :<C-u>LspWorkspaceSymbol<CR>
-  nnoremap <buffer> gQ :<C-u>LspDocumentFormat<CR>
-  vnoremap <buffer> gQ :LspDocumentRangeFormat<CR>
-  nnoremap <buffer> <F3> :<C-u>LspImplementation<CR>
-  nnoremap <buffer> <F6> :<C-u>LspRename<CR>
+function! s:on_lsp_buffer_enabled() abort
+    setlocal omnifunc=lsp#complete
+    setlocal signcolumn=yes
+    if exists('+tagfunc') | setlocal tagfunc=lsp#tagfunc | endif
+    nmap <buffer> gd <plug>(lsp-definition)
+    nmap <buffer> gr <plug>(lsp-references)
+    nmap <buffer> <F3> <plug>(lsp-implementation)
+    nmap <buffer> gt <plug>(lsp-type-definition)
+    nmap <buffer> <F6> <plug>(lsp-rename)
+    nmap <buffer> <F2> <Plug>(lsp-next-diagnostic)
+    nmap <buffer> <F1> <plug>(lsp-hover)
+    
+    " refer to doc to add more commands
 endfunction
+
+augroup lsp_install
+    au!
+    " call s:on_lsp_buffer_enabled only for languages that has the server registered.
+    autocmd User lsp_buffer_enabled call s:on_lsp_buffer_enabled()
+augroup END
+
