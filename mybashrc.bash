@@ -20,7 +20,15 @@ parse_git_branch() {
   git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
 }
 
-export PS1="\W\[\033[32m\]\$(parse_git_branch)\[\033[00m\] $ "
+if git rev-parse --git-dir > /dev/null 2>&1; then
+    # git repo!
+    export PS1="\W\[\033[32m\]\$(parse_git_branch)\[\033[00m\] $ "
+else
+    # NOT a git repo!
+    export PS1="\W\[\033[32m\](not git repo)\[\033[00m\] $"
+fi
+
+
 
 # ==== bash history setting ====
 export HISTSIZE=10000
@@ -49,9 +57,11 @@ git config --global push.default simple
 git config --global pull.ff only
 git config --global github.user AtsushiSakai
 git config --global diff.ignoreSubmodules dirty
+
 git config --global alias.c "commit -av"
-git config --global alias.p "!git push origin `git rev-parse --abbrev-ref HEAD`"
 git config --global alias.wdiff "diff --color-words"
+git config --global alias.p "!git push origin `git rev-parse --abbrev-ref HEAD`"
+
 
 # for percol setting
 source ~/dotfiles/mypercol.bash
