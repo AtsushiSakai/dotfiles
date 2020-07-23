@@ -49,8 +49,9 @@ git config --global push.default simple
 git config --global pull.ff only
 git config --global github.user AtsushiSakai
 git config --global diff.ignoreSubmodules dirty
+git config --global alias.c "commit -av"
 git config --global alias.p "!git push origin `git rev-parse --abbrev-ref HEAD`"
-git config --global alias.wdiff "!git push origin diff --color-words"
+git config --global alias.wdiff "diff --color-words"
 
 # for percol setting
 source ~/dotfiles/mypercol.bash
