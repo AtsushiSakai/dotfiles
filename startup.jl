@@ -1,7 +1,8 @@
 "
- startup script
+ startup julia script
 
- author: Atsushi Sakai
+ * create link
+ ln -nfs ~/dotfiles/startup.jl ~/.julia/config/startup.jl 
 "
 
 ENV["JULIA_EDITOR"] = "vim"
@@ -20,7 +21,17 @@ atreplinit() do repl
     try
         @eval using Revise
         @async Revise.wait_steal_repl_backend()
-    catch
+    catch e
+        @warn(e.msg)
+    end
+end
+
+# For BenchmarkTools
+atreplinit() do repl
+    try
+        @eval using BenchmarkTools
+    catch e
+        @warn(e.msg)
     end
 end
 
