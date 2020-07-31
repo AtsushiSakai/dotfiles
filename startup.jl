@@ -21,10 +21,19 @@ atreplinit() do repl
     try
         @eval using Revise
         @async Revise.wait_steal_repl_backend()
-    catch e
+
+            catch e
         @warn(e.msg)
     end
 end
+
+function recursive_includet(filename)
+    includet(filename)
+    for (mod, file) in Revise.included_files
+        Revise.track(mod, file)
+    end
+end
+
 
 # For BenchmarkTools
 atreplinit() do repl
