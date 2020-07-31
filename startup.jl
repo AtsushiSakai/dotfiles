@@ -27,9 +27,12 @@ atreplinit() do repl
     end
 end
 
+
 function recursive_includet(filename)
+    already_included = copy(Revise.included_files)
     includet(filename)
-    for (mod, file) in Revise.included_files
+    newly_included = setdiff(Revise.included_files, already_included)
+    for (mod, file) in newly_included
         Revise.track(mod, file)
     end
 end
