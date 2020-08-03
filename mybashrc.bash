@@ -61,6 +61,7 @@ git config --global diff.ignoreSubmodules dirty
 git config --global alias.c "commit -av"
 git config --global alias.wdiff "diff --color-words"
 git config --global alias.p "!git push origin `git rev-parse --abbrev-ref HEAD`"
+git config --global alias.force-pull "!git fetch && git reset --hard origin/`git current-branch`"
 
 
 # for percol setting
