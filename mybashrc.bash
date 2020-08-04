@@ -16,6 +16,12 @@ if type "exa" > /dev/null 2>&1; then
     alias lls='exa -l --git'
 fi
 
+# open finder emulation
+if type "nautilus" > /dev/null 2>&1; then # for ubuntu
+    alias Open='nautilus ""'
+fi
+
+
 parse_git_branch() {
   git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
 }
@@ -27,7 +33,6 @@ else
     # NOT a git repo!
     export PS1="\W\[\033[32m\](not git repo)\[\033[00m\] $"
 fi
-
 
 
 # ==== bash history setting ====
@@ -61,7 +66,7 @@ git config --global diff.ignoreSubmodules dirty
 git config --global alias.c "commit -av"
 git config --global alias.wdiff "diff --color-words"
 git config --global alias.p "!git push origin `git rev-parse --abbrev-ref HEAD`"
-git config --global alias.force-pull "!git fetch && git reset --hard origin/`git current-branch`"
+git config --global alias.force-pull "!git fetch && git reset --hard origin/`git rev-parse --abbrev-ref HEAD`"
 
 
 # for percol setting
@@ -75,9 +80,4 @@ alias pyjsonviewer='python -m pyjsonviewer'
 alias jupercol='find . -name "*.ipynb" -not -name '*checkpoint*'| percol | xargs jupyter notebook'
 
 alias pipallupdate='pip list --outdated --format=freeze | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 sudo -H pip install -U --user'
-
-# Julia setting
-alias julia='julia --color=yes'
-export JULIA_NUM_THREADS=4
-export JULIA_EDITOR=vim
 
