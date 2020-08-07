@@ -20,7 +20,9 @@
 [diff]
 	ignoreSubmodules = dirty
 [alias]
+    c = commit -av
     p = !git push origin `git rev-parse --abbrev-ref HEAD`
     wdiff = diff --color-words
+    force-pull = !git fetch && git reset --hard origin/`git rev-parse --abbrev-ref HEAD`
 [pull]
 	ff = only
