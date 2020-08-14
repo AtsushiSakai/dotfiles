@@ -17,14 +17,10 @@ atreplinit() do repl
 end
 
 # For Revise.jl
-atreplinit() do repl
-    try
-        @eval using Revise
-        @async Revise.wait_steal_repl_backend()
-
-            catch e
-        @warn(e.msg)
-    end
+try
+    using Revise
+catch e
+    @warn(e.msg)
 end
 
 
@@ -44,6 +40,41 @@ atreplinit() do repl
         @eval using BenchmarkTools
     catch e
         @warn(e.msg)
+    end
+end
+
+# For PackageCompiler.jl
+try
+    using PackageCompiler
+catch e
+    @warn(e.msg)
+end
+
+
+atreplinit() do repl
+    @eval using Pkg
+
+    DEFAULT_PKGS = [:OhMyREPL, :Revise, :BenchmarkTools, :PyPlot]
+
+    function install_default_pkgs()
+        println("Installing default packages to latest ones...")
+        for pkg in DEFAULT_PKGS
+            Pkg.add(String(pkg))
+        end
+    end
+
+    function generate_default_sysimage()
+
+        println("Updating default packages to latest ones...")
+        for pkg in DEFAULT_PKGS
+            println("Updating $(String(pkg))")
+            Pkg.update(String(pkg))
+        end
+
+        create_sysimage(DEFAULT_PKGS;replace_default=true)
+
+        println("Done!!. If you want to restore default sysimage, run `restore_default_sysimage()`")
+
     end
 end
 
