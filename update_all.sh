@@ -7,10 +7,13 @@ git pull --recurse-submodules origin master
 git submodule update --init --recursive
 git submodule foreach git pull origin master
 
-# update vim setting
+echo "Install dotfiles"
+./install.sh
+
+echo "update vim files"
 vim/update_all.sh
 
-# Update all python libraries
+echo "update python files"
 pip install --upgrade pip
 pip list --outdated --format=freeze | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 sudo -H pip install -U --user --no-warn-script-location
 
