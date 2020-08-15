@@ -6,6 +6,7 @@
 "
 
 ENV["JULIA_EDITOR"] = "vim"
+ENV["PYTHON"]=Sys.which("python3")
 
 # for OhMyREPL
 atreplinit() do repl
