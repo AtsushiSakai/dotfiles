@@ -7,10 +7,13 @@
 let g:julia_lint_ignores = ["E321"]
 packadd julia.vim
 packadd julia-vim
-
-source ~/.vim/pack/mypackage/opt/julia-vim/ftplugin/juliadoc.vim
 syntax on
 
+# julia-vim setting
+let g:latex_to_unicode_auto = 1
+
+
+# julia.vim setting
 command! Doc :call JuliaDocstring()
 
 if has('terminal')
