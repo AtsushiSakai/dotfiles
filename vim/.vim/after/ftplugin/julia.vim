@@ -9,11 +9,8 @@ packadd julia.vim
 packadd julia-vim
 syntax on
 
-# julia-vim setting
 let g:latex_to_unicode_auto = 1
 
-
-# julia.vim setting
 command! Doc :call JuliaDocstring()
 
 if has('terminal')

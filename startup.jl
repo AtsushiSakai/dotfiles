@@ -51,31 +51,28 @@ catch e
     @warn(e.msg)
 end
 
+@eval using Pkg
 
-atreplinit() do repl
-    @eval using Pkg
+DEFAULT_PKGS = [:OhMyREPL, :Revise, :BenchmarkTools, :PyPlot]
 
-    DEFAULT_PKGS = [:OhMyREPL, :Revise, :BenchmarkTools, :PyPlot]
+function install_default_pkgs()
+    println("Installing default packages to latest ones...")
+    for pkg in DEFAULT_PKGS
+        Pkg.add(String(pkg))
+    end
+end
 
-    function install_default_pkgs()
-        println("Installing default packages to latest ones...")
-        for pkg in DEFAULT_PKGS
-            Pkg.add(String(pkg))
-        end
+function generate_default_sysimage()
+
+    println("Updating default packages to latest ones...")
+    for pkg in DEFAULT_PKGS
+        println("Updating $(String(pkg))")
+        Pkg.update(String(pkg))
     end
 
-    function generate_default_sysimage()
+    create_sysimage(DEFAULT_PKGS;replace_default=true)
 
-        println("Updating default packages to latest ones...")
-        for pkg in DEFAULT_PKGS
-            println("Updating $(String(pkg))")
-            Pkg.update(String(pkg))
-        end
+    println("Done!!. If you want to restore default sysimage, run `restore_default_sysimage()`")
 
-        create_sysimage(DEFAULT_PKGS;replace_default=true)
-
-        println("Done!!. If you want to restore default sysimage, run `restore_default_sysimage()`")
-
-    end
 end
 
