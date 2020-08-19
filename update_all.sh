@@ -27,9 +27,9 @@ echo "update vim files"
 vim/update_all.sh
 
 echo "update python files"
-pip install --upgrade pip
-pip freeze > requirements.txt
-pip install -r requirements.txt --upgrade
+python3 -m pip install --upgrade pip
+python3 -m pip freeze > requirements.txt
+python3 -m pip install -r requirements.txt --upgrade
 rm requirements.txt
 
 echo "$(basename $0) done!"
