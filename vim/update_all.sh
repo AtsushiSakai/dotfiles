@@ -10,8 +10,8 @@ elif [ "$(expr substr $(uname -s) 1 5)" == 'Linux' ]; then
     else # Ubuntu
         sudo apt install vim
     fi
-elif [ "$(expr substr $(uname -s) 1 10)" == 'MINGW32_NT' ]; then                                                    
-    OS='Cygwin'
+elif [ "$(expr substr $(uname -s) 1 10)" == 'MINGW64_NT' ]; then                                                    
+    OS='Windows'
 else
     echo "Your platform ($(uname -a)) is not supported."
     exit 1

@@ -28,7 +28,9 @@ vim/update_all.sh
 
 echo "update python files"
 pip install --upgrade pip
-pip list --outdated --format=freeze | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 sudo -H pip install -U --user --no-warn-script-location
+pip freeze > requirements.txt
+pip install -r requirements.txt --upgrade
+rm requirements.txt
 
 echo "$(basename $0) done!"
 exit 0

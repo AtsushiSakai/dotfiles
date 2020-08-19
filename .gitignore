@@ -3,3 +3,4 @@
 .netrwhist
 vim/.vim/backup/*
 vim/.vim/undo/*
+bin/peco.exe
