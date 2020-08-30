@@ -30,4 +30,3 @@ augroup vimrc-make-cmake
   autocmd BufNewFile,BufRead CMakeLists.txt setlocal filetype=cmake
 augroup END
 
->>>>>>> 8e1e3be29772fbac474cf1b937890bb7787b3673
