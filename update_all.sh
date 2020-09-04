@@ -27,10 +27,10 @@ echo "update vim files"
 vim/update_all.sh
 
 echo "update python files"
-python3.8 -m pip install --upgrade pip
-python3.8 -m pip install --upgrade pip-upgrader
-python3.8 -m pip freeze > requirements.txt
-pip-upgrade --skip-virtualenv-check ./requiments.txt
+python3 -m pip install --upgrade pip
+python3 -m pip freeze > requirements.txt
+sed -i -e 's/==/>=/g' requirements.txt
+python3 -m pip install -r requirements.txt --upgrade
 rm requirements.txt
 
 echo "$(basename $0) done!"
