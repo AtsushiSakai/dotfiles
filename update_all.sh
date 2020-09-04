@@ -28,7 +28,7 @@ vim/update_all.sh
 
 echo "update python files"
 python3.8 -m pip install --upgrade pip
-python3.8 -m pip install --upgrade pip-upgrade
+python3.8 -m pip install --upgrade pip-upgrader
 python3.8 -m pip freeze > requirements.txt
 pip-upgrade --skip-virtualenv-check ./requiments.txt
 rm requirements.txt
