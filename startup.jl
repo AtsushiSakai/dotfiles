@@ -74,6 +74,9 @@ function generate_default_sysimage()
         Pkg.update(String(pkg))
     end
 
+    println("Restore sysimage once...")
+    restore_default_sysimage()
+
     create_sysimage(DEFAULT_PKGS;replace_default=true)
 
     println("Done!!. If you want to restore default sysimage, run `restore_default_sysimage()`")
