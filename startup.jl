@@ -75,7 +75,11 @@ function generate_default_sysimage()
     end
 
     println("Restore sysimage once...")
-    restore_default_sysimage()
+    try
+        restore_default_sysimage()
+    catch e
+        println(e.msg)
+    end
 
     create_sysimage(DEFAULT_PKGS;replace_default=true)
 
