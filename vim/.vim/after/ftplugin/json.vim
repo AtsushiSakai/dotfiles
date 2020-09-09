@@ -1,6 +1,9 @@
 " vim configuration for json
 " Author: Atsushi Sakai
- "echo "json on"
+"echo "json on"
+
+set conceallevel=0
+let g:vim_json_syntax_conceal=0
 
 "JSON format
 function! JsonFormat()
