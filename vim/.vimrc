@@ -21,7 +21,6 @@ if $HOME != $USERPROFILE && $GIT_EXEC_PATH != ''
 end
 
 let g:myvimpath = $HOME . '/dotfiles/vim/'
-let g:win_myvimpath = "~\myvim"
 
 "autocmd用 autocmdのすべてにautocmd vimrcとすること
 augroup vimrc
@@ -30,8 +29,8 @@ augroup END
 
 
 "=====Set up filetype===="
-filetype on
-filetype plugin indent on
+"filetype on
+"filetype plugin indent on
 
 " md as markdown, instead of modula2
 autocmd vimrc Bufnewfile,bufread *.{mark*,md} set filetype=markdown
@@ -39,6 +38,21 @@ autocmd vimrc Bufnewfile,bufread *.{launch,srv} set filetype=xml
 autocmd vimrc Bufnewfile,bufread *.jl set filetype=julia
 autocmd vimrc Bufnewfile,bufread *.rst set filetype=rst
 autocmd vimrc Bufnewfile,bufread *.py set filetype=python
+
+command! CloseHiddenBuffers call s:CloseHiddenBuffers()
+function! s:CloseHiddenBuffers()
+  let open_buffers = []
+
+  for i in range(tabpagenr('$'))
+    call extend(open_buffers, tabpagebuflist(i + 1))
+  endfor
+
+  for num in range(1, bufnr("$") + 1)
+    if buflisted(num) && index(open_buffers, num) == -1
+      exec "bdelete ".num
+    endif
+  endfor
+endfunction
 
 "Quick run setting
 let g:quickrun_config = get(g:, 'quickrun_config', {})
@@ -93,18 +107,14 @@ set wrapscan
 " ESCを二回押すことでハイライトを消す
 nmap <silent> <Esc><Esc> :nohlsearch<CR>
 
-"別ファイルで修正された場合に自動読み込み"
-set autoread
+set autoread            "別ファイルで修正された場合に自動読み込み
 set mouse=a             " for window size adustment in ubuntu
 set ttymouse=xterm2     " setup high function mouse
-set hidden              " バッファを閉じる代わりに隠す（Undo履歴を残すため）
-set switchbuf=useopen   " 新しく開く代わりにすでに開いてあるバッファを開く
+"set hidden              " バッファを閉じる代わりに隠す（Undo履歴を残すため）
+"set switchbuf=useopen   " 新しく開く代わりにすでに開いてあるバッファを開く
 
 "検索時に大文字を含んでいたら大/小を区別
 set ignorecase smartcase
-
-" 入力モード中に素早くjjと入力した場合はESCとみなす
-inoremap jj <Esc>
 
 " 閉じ括弧を表示した時に，対応する括弧を表示する
 set showmatch
@@ -235,8 +245,6 @@ elseif stridx(system('uname'),'MING')!=-1 || has("win32") || $WSL != ""
     " Open finder
     command! Open !start .
 
-	"let g:completor_python_binary = 'C:\ProgramData\Anaconda3\python'
-
 elseif stridx(system('uname'),'Linu')!=-1
     " Linux用のコード
     "echo 'This is unix'
@@ -271,46 +279,6 @@ nnoremap <expr> gr ':Rgrep<CR>'
 
 "gvimのCdCurrentを設定 "
 command! -nargs=0 CdCurrent cd %:p:h
-
-" Ctrl x completion
-let s:compl_key_dict = {
-      \ char2nr("\<C-l>"): "\<C-x>\<C-l>",
-      \ char2nr("\<C-n>"): "\<C-x>\<C-n>",
-      \ char2nr("\<C-p>"): "\<C-x>\<C-p>",
-      \ char2nr("\<C-k>"): "\<C-x>\<C-k>",
-      \ char2nr("\<C-t>"): "\<C-x>\<C-t>",
-      \ char2nr("\<C-i>"): "\<C-x>\<C-i>",
-      \ char2nr("\<C-]>"): "\<C-x>\<C-]>",
-      \ char2nr("\<C-f>"): "\<C-x>\<C-f>",
-      \ char2nr("\<C-d>"): "\<C-x>\<C-d>",
-      \ char2nr("\<C-v>"): "\<C-x>\<C-v>",
-      \ char2nr("\<C-u>"): "\<C-x>\<C-u>",
-      \ char2nr("\<C-o>"): "\<C-x>\<C-o>",
-      \ char2nr('s'): "\<C-x>s",
-      \ char2nr("\<C-s>"): "\<C-x>s"
-      \}
-
-let s:hint_i_ctrl_x_msg = join([
-      \ '<C-l>: While lines',
-      \ '<C-n>: keywords in the current file',
-      \ "<C-k>: keywords in 'dictionary'",
-      \ "<C-t>: keywords in 'thesaurus'",
-      \ '<C-i>: keywords in the current and included files',
-      \ '<C-]>: tags',
-      \ '<C-f>: file names',
-      \ '<C-d>: definitions or macros',
-      \ '<C-v>: Vim command-line',
-      \ "<C-u>: User defined completion ('completefunc')",
-      \ "<C-o>: omni completion ('omnifunc')",
-      \ "s: Spelling suggestions ('spell')"
-      \], "\n")
-function! s:hint_i_ctrl_x() abort
-  echo s:hint_i_ctrl_x_msg
-  let c = getchar()
-  return get(s:compl_key_dict, c, nr2char(c))
-endfunction
-
-inoremap <expr> <C-x>  <SID>hint_i_ctrl_x()
 
 " Terminal setting
 if has('terminal')
