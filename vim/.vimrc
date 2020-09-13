@@ -88,6 +88,10 @@ nnoremap <space><space> :<c-u>MRU<CR>
 nnoremap n nzzzv
 nnoremap N Nzzzv
 
+" 折り返し時に表示行単位での移動できるようにする
+nnoremap j gj
+nnoremap k gk
+
 set nofoldenable    " disable folding
 
 " Initial template setting
