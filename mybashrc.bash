@@ -47,4 +47,5 @@ source ~/dotfiles/src/enhancd/init.sh
 # alias
 alias pyjsonviewer='python -m pyjsonviewer'
 alias jupercol='find . -name "*.ipynb" -not -name '*checkpoint*'| percol | xargs jupyter notebook'
+alias plain_vim='vim -u NONE'
 
