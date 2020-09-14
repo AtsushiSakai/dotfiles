@@ -6,6 +6,9 @@ if [ "$(expr substr $(uname -s) 1 10)" == 'MINGW64_NT' ]; then
     # ln command does not work in Windows, so override these files
     rm -rf ~/.vim
     cp -rf ~/dotfiles/vim/.vim ~/.vim
+    rm -rf ~/vimfiles
+    cp -rf ~/dotfiles/vim/.vim ~/vimfiles
+
     rm -rf ~/.vimrc
     cp -rf ~/dotfiles/vim/.vimrc ~/.vimrc
     rm -rf ~/.gvimrc
