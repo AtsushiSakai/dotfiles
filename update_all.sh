@@ -1,6 +1,8 @@
 #!/bin/bash
 echo "$(basename $0) start!"
 
+set -x # debug mode
+
 echo "Update dotfiles"
 git pull origin master
 git pull --recurse-submodules origin master
@@ -16,7 +18,8 @@ if [ "$(uname)" == 'Darwin' ]; then
     PYTHON_RUN="python3.8"
 elif [ "$(expr substr $(uname -s) 1 5)" == 'Linux' ]; then
     echo "OS is Linux"
-    PYTHON_RUN="python3.8"
+    PYTHON_RUN="python3.9"
+    sudo apt autoremove
 elif [ "$(expr substr $(uname -s) 1 10)" == 'MINGW64_NT' ]; then
     echo "OS is Windows"
     git update-git-for-windows
