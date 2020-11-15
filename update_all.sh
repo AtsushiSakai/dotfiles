@@ -15,7 +15,7 @@ echo "Install dotfiles"
 echo "=== update software ==="
 if [ "$(uname)" == 'Darwin' ]; then
     echo "OS is Mac"
-    PYTHON_RUN="python3.8"
+    PYTHON_RUN="python3.9"
 elif [ "$(expr substr $(uname -s) 1 5)" == 'Linux' ]; then
     echo "OS is Linux"
     PYTHON_RUN="python3.9"
