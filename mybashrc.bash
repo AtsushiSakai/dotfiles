@@ -43,6 +43,7 @@ source ~/dotfiles/mypercol.bash
 
 # for enhancd setting
 source ~/dotfiles/src/enhancd/init.sh
+export ENHANCD_FILTER=fzf
 
 # alias
 alias pyjsonviewer='python -m pyjsonviewer'
