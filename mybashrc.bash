@@ -40,6 +40,7 @@ PROMPT_COMMAND="history -a;$PROMPT_COMMAND"
 
 # for percol setting
 source ~/dotfiles/mypercol.bash
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
 # for enhancd setting
 source ~/dotfiles/src/enhancd/init.sh
