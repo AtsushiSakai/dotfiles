@@ -202,9 +202,6 @@ endif
 "ctags関係
 set tags=~/tags
 
-" For completor
-let g:completor_python_binary = "~/.pyenv/shims/python"
-
 " select with tab
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
