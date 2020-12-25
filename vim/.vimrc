@@ -14,6 +14,12 @@ source $VIMRUNTIME/defaults.vim
 " setup colorscheme
 colorscheme darkblue
 
+" git commit spell check setting
+augroup GitSpellCheck
+    autocmd!
+    autocmd FileType gitcommit setlocal spell
+augroup END
+
 " Do not read vimrc at git commit 
 if $HOME != $USERPROFILE && $GIT_EXEC_PATH != ''
   finish
@@ -333,5 +339,12 @@ au User asyncomplete_setup call asyncomplete#register_source(asyncomplete#source
     \ 'allowlist': ['*'],
     \ 'priority': 10,
     \ 'completor': function('asyncomplete#sources#file#completor')
+    \ }))
+
+au User asyncomplete_setup call asyncomplete#register_source(asyncomplete#sources#buffer#get_source_options({
+    \ 'name': 'buffer',
+    \ 'allowlist': ['*'],
+    \ 'priority': 15,
+    \ 'completor': function('asyncomplete#sources#buffer#completor'),
     \ }))
 
