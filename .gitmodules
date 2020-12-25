@@ -13,9 +13,6 @@
 [submodule "vim/.vim/pack/mypackage/start/grep.vim"]
 	path = vim/.vim/pack/mypackage/start/grep.vim
 	url = https://github.com/vim-scripts/grep.vim
-[submodule "vim/.vim/pack/mypackage/start/completor.vim"]
-	path = vim/.vim/pack/mypackage/start/completor.vim
-	url = https://github.com/maralla/completor.vim.git
 [submodule "vim/.vim/pack/mypackage/start/spelunker.vim"]
 	path = vim/.vim/pack/mypackage/start/spelunker.vim
 	url = https://github.com/kamykn/spelunker.vim
