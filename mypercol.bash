@@ -49,6 +49,12 @@ f_git_change_branch() {
   git checkout $(echo "$branch" | awk '{print $1}' | sed "s/.* //")
 }
 
+# fuzzy docker image bash
+f_docker_image_bash() {
+  docker exec -it `docker ps --format "{{.Names}}" | fzf` bash
+}
+
+
 #_replace_by_history() {
     ##declare l=$(HISTTIMEFORMAT= history | sort -k1,1nr | perl -ne 'BEGIN { my @lines = (); } s/^\s*\d+\s*//; $in=$_; if (!(grep {$in eq $_} @lines)) { push(@lines, $in); print $in; }' | percol --query "$READLINE_LINE")
     #declare l=$(HISTTIMEFORMAT= history | sort -k1,1nr | perl -ne 'BEGIN { my @lines = (); } s/^\s*\d+\s*//; $in=$_; if (!(grep {$in eq $_} @lines)) { push(@lines, $in); print $in; }' | fzf --no-sort --tac --query "$READLINE_LINE")
