@@ -1,0 +1,4 @@
+# This script run a arg command for jetbrans IDE bash run configulation
+# ex) ./runbash echo $(date)
+# Ref https://youtrack.jetbrains.com/issue/IDEA-112256
+$@

@@ -3,6 +3,8 @@ echo "$(basename $0) start!"
 
 set -x # debug mode
 
+cd $(dirname $0) || exit 1
+
 echo "Update dotfiles"
 git pull origin master
 git pull --recurse-submodules origin master
