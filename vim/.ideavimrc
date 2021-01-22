@@ -37,9 +37,13 @@ imap <C-n> <ESC>:action HippieCompletion<CR>a
 " Rename element
 nnoremap <space>r :action RenameElement<CR>
 
+" show TypeHierarchy (only for intelij idea)
+nnoremap <C-h> :action TypeHierarchy<CR>
 
-" highlight off (does not work on ideavim)
-"nnoremap <ESC><ESC> :noh<CR>
+" show CallHierarchy
+nnoremap <C-c> :action CallHierarchy<CR>
+
+
 
 " === enable plugin ===
 " surround vim
