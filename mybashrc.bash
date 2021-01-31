@@ -17,8 +17,8 @@ if type "exa" > /dev/null 2>&1; then
 fi
 
 # open finder emulation
-if type "nautilus" > /dev/null 2>&1; then # for ubuntu
-    alias Open='nautilus ""'
+if type "xdg-open" > /dev/null 2>&1; then # for ubuntu
+    alias open='xdg-open'
 fi
 
 
