@@ -5,7 +5,7 @@
 "
 
 "encoding
-"set encoding=utf-8
+set encoding=utf-8
 scriptencoding utf-8 
 set fileencodings=iso-2022-jp,euc-jp,sjis,utf-8
 
