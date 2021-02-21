@@ -73,3 +73,6 @@
 [submodule "vim/.vim/pack/mypackage/start/asyncomplete-buffer.vim"]
 	path = vim/.vim/pack/mypackage/start/asyncomplete-buffer.vim
 	url = https://github.com/prabirshrestha/asyncomplete-buffer.vim.git
+[submodule "vim/.vim/pack/mypackage/start/vim-gitgutter"]
+	path = vim/.vim/pack/mypackage/start/vim-gitgutter
+	url = https://github.com/airblade/vim-gitgutter.git
