@@ -5,7 +5,7 @@
 "
 
 "encoding
-set encoding=utf-8
+"set encoding=utf-8
 scriptencoding utf-8 
 set fileencodings=iso-2022-jp,euc-jp,sjis,utf-8
 
@@ -58,6 +58,12 @@ function! s:CloseHiddenBuffers()
     endif
   endfor
 endfunction
+
+"netrw settings
+let g:netrw_liststyle=1
+let g:netrw_sizestyle="h"
+let g:netrw_timefmt="%Y/%m/%d:%H:%M:%S"
+let g:netrw_preview=1 " vertial prevbiew
 
 "Quick run setting
 let g:quickrun_config = get(g:, 'quickrun_config', {})
@@ -213,7 +219,7 @@ let g:this_is_win = 0
 "OS毎の設定
 if stridx(system('uname'),'Dar')!=-1
     " Mac環境用のコード
-     "echo 'This is mac'
+    "echo 'This is mac'
 
     " Mac の辞書.appで開く {{{
     " 引数に渡したワードを検索
@@ -236,6 +242,7 @@ elseif stridx(system('uname'),'MING')!=-1 || has("win32") || $WSL != ""
     " Windows環境用のコード
     "echo 'This is win or WSL'
     "
+    set encoding=utf-8
     set redrawtime=20000 " for syntax on broken problem
 
     if $WSL == "" "not for WSL
