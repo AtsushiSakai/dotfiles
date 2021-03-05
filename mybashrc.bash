@@ -21,8 +21,20 @@ if type "xdg-open" > /dev/null 2>&1; then # for ubuntu
     alias open='xdg-open'
 fi
 
+function add_upstream() {
+    url=$(git config --get remote.origin.url)
+    repo=$(basename ${url##*/} .git)
+    user=$(echo "$url" | awk -F/ '{print $4}')
+    remote=$(curl -s "https://api.github.com/repos/$user/$repo" | jq -r '.parent.clone_url')
+    echo "upstream is " $remote
+    if [ ! -z "$remote" ]; then
+        git remote add upstream "$remote"
+    else
+        echo "no upstream found"
+    fi
+}
 
-parse_git_branch() {
+function parse_git_branch() {
   git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
 }
 export PS1="\W\[\033[32m\]\$(parse_git_branch)\[\033[00m\] $ "
