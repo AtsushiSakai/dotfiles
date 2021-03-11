@@ -8,9 +8,6 @@ export HISTCONTROL=ignoreboth:erasedups
 export HISTSIZE=10000
 
 alias percol='fzf'
-alias fzf='fzf --no-sort --tac'
-export FZF_CTRL_R_OPTS='--no-sort'
-export FZF_DEFAULT_OPTS='--no-sort'
 
 alias glNoGraph='git log --color=always --format="%C(auto)%h%d %s %C(black)%C(bold)%cr% C(auto)%an" "$@"'
 _gitLogLineToHash="echo {} | grep -o '[a-f0-9]\{7\}' | head -1"
